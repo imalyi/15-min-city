@@ -3,4 +3,4 @@
 
 Zespół:
 1. Ihor Malyi
-2. Artcem Stankevich
+2. Artsem Stankevich
