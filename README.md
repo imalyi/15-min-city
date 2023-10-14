@@ -4,7 +4,7 @@ Celem projektu "Miasto 15-minutowe" jest stworzenie aplikacji internetowej, któ
 
 Aplikacja będzie składać się z trzech głównych komponentów: panelu administratora, panelu użytkownika i backendu do przechowywania danych, zbierania nowych informacji o miejscach publicznych oraz wyszukiwania najbliższych punktów.
 
-Panel administratora będzie służyć do tworzenia zadań dotyczących zbierania danych z Google Maps Places API. Ze względu na koszty dostępu do danych, niemożliwe jest natychmiastowe zebranie wszystkich informacji o wszystkich miejscach publicznych w kraju. Administrator będzie miał możliwość wprowadzania koordynatów miejsca, promienia oraz kategorii miejsc, które mają zostać zebrane. Lista dostępnych kategorii jest dostępna tutaj: link.
+Panel administratora(https://github.com/imalyi/google_maps_parser_api) będzie służyć do tworzenia zadań dotyczących zbierania danych z Google Maps Places API. Ze względu na koszty dostępu do danych, niemożliwe jest natychmiastowe zebranie wszystkich informacji o wszystkich miejscach publicznych w kraju. Administrator będzie miał możliwość wprowadzania koordynatów miejsca, promienia oraz kategorii miejsc, które mają zostać zebrane. Lista dostępnych kategorii jest dostępna pod linkiem https://developers.google.com/maps/documentation/places/web-service/supported_types
 
 Interfejs użytkownika w formie strony internetowej pozwoli użytkownikowi wprowadzić swój adres domowy. Po wprowadzeniu adresu, użytkownik zobaczy, czy miejsca publiczne w kategoriach takich jak sklepy, placówki edukacyjne, banki, przychodnie, itp., są dostępne w ciągu 15 minut pieszo. Dodatkowo, użytkownicy będą mieli możliwość zapisania się do newslettera informującego o nowych miejscach w ich okolicy oraz przeglądania opinii o miejscach w ich okolicy z ostatnich 3 miesięcy.
 
@@ -14,3 +14,5 @@ Po zebraniu danych, aplikacja wykorzysta informacje z OpenStreetMaps i OpenStree
 Zespół:
 1. Ihor Malyi (lider)
 2. Artsem Stankevich
+
+
