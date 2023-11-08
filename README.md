@@ -17,4 +17,4 @@ Zespół:
 
 
 
-![Diagram](https://github.com/imalyi/15_minutescity/blob/main/Untitled-2023-11-08-1551(2).png?raw=true)
+![Diagram](https://github.com/imalyi/15_minutescity/blob/main/Untitled-2023-11-08-1551(3).png?raw=true)
