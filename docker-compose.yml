@@ -1,0 +1,76 @@
+version: "3.3"
+services:
+    rabbitmq:
+        container_name: "rabbitmq"
+        image: rabbitmq:3.8-management-alpine
+        environment:
+            - RABBITMQ_DEFAULT_USER=django_api
+            - RABBITMQ_DEFAULT_PASS=343877
+        ports:
+            - '5672:5672'
+            - '15672:15672'
+
+    api:
+        container_name: "api"
+        image: malyyigor34/15_min_google_maps_parser_api:v1
+        ports:
+            - "8111:8000"
+        environment:
+            - PIKA_USERNAME=django_api
+            - PIKA_PASSWORD=343877
+            - PIKA_HOST=rabbitmq
+            - PIKA_PORT=5672
+            - API_DB_NAME=google_maps_parser_api
+            - API_DB_USER=google_maps_parser_api
+            - API_DB_PASSWORD=343877
+            - API_DB_HOST=db
+            - API_DB_PORT=3306
+        depends_on:
+            db:
+                condition: service_started
+            rabbitmq:
+                condition: service_started
+
+    db:
+        image: mysql:8.2.0
+        container_name: "db"
+        restart: always
+        environment:
+            MYSQL_DATABASE: 'google_maps_parser_api'
+            MYSQL_USER: 'google_maps_parser_api'
+            MYSQL_PASSWORD: '343877'
+            MYSQL_ROOT_PASSWORD: '343877'
+        ports:
+            - '3306:3306'
+        volumes:
+            - /data/15min/api_db:/var/lib/mysql
+
+    mongo:
+        image: mongo
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: 343877
+        ports:
+            - "28017:27017"
+        volumes:
+            - "/data/15min/gmaps_data/:/data/db/"
+    mongo-express:
+        image: mongo-express
+        restart: always
+        ports:
+            - "28018:8081"
+        environment:
+            ME_CONFIG_MONGODB_ADMINUSERNAME: root
+            ME_CONFIG_MONGODB_ADMINPASSWORD: 343877
+            ME_CONFIG_MONGODB_URL: mongodb://root:343877@mongo:27017/
+
+      
+    parser:
+      container_name: "parser"
+      image: malyyigor34/15_min_google_maps_parser:v1
+      depends_on:
+        mongo:
+          condition: service_started
+        rabbitmq:
+          condition: service_started
