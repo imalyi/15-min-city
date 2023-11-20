@@ -18,7 +18,7 @@ services:
             - stack.env
         command: ./start.sh
         ports:
-            - "8081:8000"
+            - "8111:8000"
         restart: unless-stopped
         depends_on:
             db:
@@ -55,11 +55,16 @@ services:
         container_name: "db"
         restart: unless-stopped
         env_file:
-            - stack.env
+            -   stack.env
+        environment:
+            - MYSQL_DATABASE=${API_DB_NAME}
+            - MYSQL_USER=${API_DB_USER}
+            - MYSQL_PASSWORD=${API_DB_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${API_DB_PASSWORD}
         ports:
             - '3306:3306'
         volumes:
-            - .data/15min/api_db:/var/lib/mysql
+            - gmaps_api_db:/var/lib/mysql
 
     mongo:
         image: mongo
@@ -70,7 +75,7 @@ services:
         ports:
             - "28017:27017"
         volumes:
-            - ".data/15min/gmaps_data/:/data/db/"
+            - gmaps_data_db:/data/db/
 
     webadmin:
         image: malyyigor34/15_min_google_maps_admin_ui:v1
@@ -80,3 +85,7 @@ services:
         depends_on:
             api:
                 condition: service_started
+
+volumes:
+    gmaps_data_db:
+    gmaps_api_db:
