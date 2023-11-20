@@ -4,8 +4,8 @@ services:
         container_name: "rabbitmq"
         image: rabbitmq:3.8-management-alpine
         environment:
-            - RABBITMQ_DEFAULT_USER=django_api
-            - RABBITMQ_DEFAULT_PASS=343877
+            - RABBITMQ_DEFAULT_USER=${PIKA_USERNAME}
+            - RABBITMQ_DEFAULT_PASS=${PIKA_PASSWORD}
         ports:
             - '5672:5672'
             - '15672:15672'
