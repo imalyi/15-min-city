@@ -99,8 +99,6 @@ services:
         volumes:
             - gmaps_data_db:/data/db/
 
-
-
     webadmin:
         image: malyyigor34/15_min_google_maps_admin_ui:master
         restart: unless-stopped
@@ -109,6 +107,17 @@ services:
         depends_on:
             api:
                 condition: service_started
+    webui:
+      image: malyyigor34/15min-user-ui:development
+      restart: unless-stopped
+      ports:
+        - "9093:3000"
+
+    userapi:
+      image: malyyigor34/15_min_user_api:master
+      restart: unless-stopped
+      ports:
+        - "8511:8001"
 
 volumes:
     gmaps_data_db:
