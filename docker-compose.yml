@@ -118,6 +118,8 @@ services:
       restart: unless-stopped
       ports:
         - "8511:8001"
+      env_file:
+        - ./stack.env
 
 volumes:
     gmaps_data_db:
