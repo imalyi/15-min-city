@@ -1,4 +1,4 @@
-# 15_minutescity
+# 15 minutes city
 
 ## Related Repositories:
 - [15-min-city-admin-api](https://github.com/imalyi/15-min-city-admin-api)
