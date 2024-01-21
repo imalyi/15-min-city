@@ -9,7 +9,7 @@
 ## Contributors:
 1. [Artsem Stankevich](https://github.com/ArtsemStankevich)
 2. [Ihor Malyi](https://github.com/imalyi/)
-3. [Partyk Jar](https://github.com/yarpo/)
+3. [Patryk Jar](https://github.com/yarpo/)
 
 ## Technologies:
 1. MongoDB
