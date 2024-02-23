@@ -8,4 +8,4 @@
 1. [Artsem Stankevich](https://github.com/ArtsemStankevich)
 2. [Ihor Malyi](https://github.com/imalyi/)
 3. [Patryk Jar](https://github.com/yarpo/)
-4. Monika Słupska
+4. [Monika Słupska](https://github.com/obrznw)
